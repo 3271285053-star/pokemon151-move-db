@@ -14,17 +14,18 @@ CREATE TABLE IF NOT EXISTS pokemon (
     defense SMALLINT,
     sp_attack SMALLINT,
     sp_defense SMALLINT,
+    speed SMALLINT,
     evolution_id SMALLINT,
     evolution_stage SMALLINT,
     remaining_evolutions SMALLINT,
-    post_evolution_id SMALLINT,
+    pre_evolution_id SMALLINT,
+    evolution_method CHAR(50),
     evolution_level SMALLINT,
     latest_generation SMALLINT,
     
-	FOREIGN KEY (post_evolution_id) REFERENCES pokemon(pokemon_id)
+	FOREIGN KEY (pre_evolution_id) REFERENCES pokemon(pokemon_id)
 ) CHARSET=utf8mb4;
 DESC pokemon;
-drop table pokemon;
 
 CREATE TABLE IF NOT EXISTS move (
 	move_id SMALLINT PRIMARY KEY,
@@ -35,10 +36,10 @@ CREATE TABLE IF NOT EXISTS move (
     move_power SMALLINT,
     accuracy SMALLINT,
     pp SMALLINT,
-	move_category CHAR(200)
+	effect TEXT
 ) CHARSET=utf8mb4;
 DESC move;
-drop table move;
+
 
 CREATE TABLE IF NOT EXISTS learn (
 	learn_id SMALLINT PRIMARY KEY,
@@ -51,4 +52,4 @@ CREATE TABLE IF NOT EXISTS learn (
 	FOREIGN KEY (pokemon_id) REFERENCES pokemon(pokemon_id),
 	FOREIGN KEY (move_id) REFERENCES move(move_id)
 ) CHARSET=utf8mb4;
-DESC move;
+DESC learn;
