@@ -1,4 +1,4 @@
-# pokemon-gen1-move-db
+# pokemon151-move-db
 
 这是一个大数据与数据工程的课程项目，面向初代151只宝可梦（Generation I），用于收集、清洗、建模并分析宝可梦在最新世代与招式（move）之间的学习关系。
 
